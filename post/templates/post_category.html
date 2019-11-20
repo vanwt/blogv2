@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}文章分类{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <h3 id="post">Posts</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for post in posts %}
+                        <li><a target="_blank"
+                               href="/post/{{ post.url }}/">{{ post.title }}&ensp;/&ensp;{{ post.create_time }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <h3>文章分类</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for pc in postCategory %}
+                        <li><a target="_blank" href="/post/category/{{ pc.id }}/">{{ pc.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

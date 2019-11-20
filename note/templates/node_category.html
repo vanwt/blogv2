@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}笔记分类{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <h3 id="note">Notes</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for note in notes %}
+                        <li><a href="/note/{{ note.id }}/">{{ note.title }}&ensp;/&ensp;{{ note.create_time }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <h3>笔记分类</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for nc in nodeCategory %}
+                        <li><a href="/note/category/{{ nc.id }}/">{{ nc.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <h3 id="note">Notes</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for note in notes %}
+                        <li><a target="_blank"
+                               href="/note/{{ note.id }}/">{{ note.title }}&ensp;/&ensp;{{ note.create_time }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <h3>笔记分类</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for nc in nodeCategory %}
+                        <li><a target="_blank" href="/note/category/{{ nc.id }}/">{{ nc.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
+            <h3 id="post">Posts</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for post in posts %}
+                        <li><a target="_blank"
+                               href="/post/{{ post.url }}/">{{ post.title }}&ensp;/&ensp;{{ post.create_time }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <h3>文章分类</h3>
+            <hr>
+            <div class="body">
+                <ul class="clean-list">
+                    {% for pc in postCategory %}
+                        <li><a target="_blank" href="/post/category/{{ pc.id }}/">{{ pc.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
