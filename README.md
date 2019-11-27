@@ -8,4 +8,4 @@ django-ckeditor
 django
 pymysql
 ```
-目前app的功能还没想好怎么写...
+预览地址 : http://1024in.com
